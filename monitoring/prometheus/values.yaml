@@ -13,11 +13,11 @@ kube-prometheus-stack:
       paths:
         - /
       hosts:
-      - 'alertmanager.{{ .Values.global.domain }}'
+      - 'alertmanager.internal.{{ .Values.global.domain }}'
       tls:
         - secretName: 'alertmanager-tls'
           hosts:
-            - 'alertmanager.{{ .Values.global.domain }}'
+            - 'alertmanager.internal.{{ .Values.global.domain }}'
 
   prometheus:
     ingress:
@@ -30,11 +30,11 @@ kube-prometheus-stack:
       paths:
         - /
       hosts:
-      - 'prometheus.{{ .Values.global.domain }}'
+      - 'prometheus.internal.{{ .Values.global.domain }}'
       tls:
         - secretName: 'prometheus-tls'
           hosts:
-            - 'prometheus.{{ .Values.global.domain }}'
+            - 'prometheus.internal.{{ .Values.global.domain }}'
     
     # https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack#prometheusioscrape
     prometheusSpec:
@@ -68,11 +68,11 @@ kube-prometheus-stack:
       paths:
         - /
       hosts:
-      - 'grafana.{{ .Values.global.domain }}'
+      - 'grafana.internal.{{ .Values.global.domain }}'
       tls:
         - secretName: 'grafana-tls'
           hosts:
-            - 'grafana.{{ .Values.global.domain }}'
+            - 'grafana.internal.{{ .Values.global.domain }}'
 
     persistence:
       enabled: true
@@ -88,4 +88,4 @@ kube-prometheus-stack:
 
     grafana.ini:
       server:
-        root_url: 'https://grafana.{{ .Values.global.domain }}'
+        root_url: 'https://grafana.internal.{{ .Values.global.domain }}'

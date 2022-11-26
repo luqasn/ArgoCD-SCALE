@@ -13,8 +13,8 @@ argo-cd:
         cert-manager.io/cluster-issuer: letsencrypt-production
         cert-manager.io/revision-history-limit: '1'
       hosts:
-        - argocd.wavebe.am
+        - argocd.internal.luqasn.org
       tls:
         - secretName: argocd-tls
           hosts:
-            - argocd.wavebe.am
+            - argocd.internal.luqasn.org

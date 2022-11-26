@@ -9,7 +9,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`traefik.{{ .Values.global.domain }}`)
+      match: Host(`traefik.internal.{{ .Values.global.domain }}`)
       middlewares:
         - name: dashboard-auth
       priority: 10
@@ -38,7 +38,7 @@ spec:
   secretName: traefik-tls
   revisionHistoryLimit: 1
   dnsNames:
-    - traefik.{{ .Values.global.domain }}
+    - traefik.internal.{{ .Values.global.domain }}
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer

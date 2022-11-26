@@ -1,15 +1,15 @@
 global:
-  repo: https://github.com/jbruns/ArgoCD-SCALE.git
+  repo: https://github.com/luqasn/ArgoCD-SCALE.git
   branch: main
-  domain: wavebe.am
+  domain: luqasn.org
   altDomainHome: bruns.house
-  TZ: America/Los_Angeles
+  TZ: Europe/Berlin
 
   applicationSets:
   - common
-  - media
-  - home
-  - monitoring
+  # - media
+  # - home
+  # - monitoring
     
   storage:
     pools: 

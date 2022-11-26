@@ -9,13 +9,13 @@ spec:
     - websecure
   routes:
     - kind: Rule 
-      match: Host(`argocd.{{ .Values.global.domain }}`)
+      match: Host(`argocd.internal.{{ .Values.global.domain }}`)
       priority: 10
       services:
         - name: argocd-server
           port: 80
     - kind: Rule
-      match: Host(`argocd.{{ .Values.global.domain }}`) && Headers(`Content-Type`, `application/grpc`)
+      match: Host(`argocd.internal.{{ .Values.global.domain }}`) && Headers(`Content-Type`, `application/grpc`)
       priority: 11
       services:
         - name: argocd-server
