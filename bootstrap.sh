@@ -7,8 +7,10 @@ helm dependency update argocd
 export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
 helm upgrade --install argocd argocd -n argocd --create-namespace --wait --timeout 120s --values globalValues.yaml
 k3s kubectl patch secret -n argocd argocd-secret -p '{"stringData": { "admin.password": "'$(htpasswd -bnBC 10 "" ${adminpassword} | tr -d ':\n')'"}}'
-
 echo "ArgoCD admin password has been set to: ${adminpassword}"
+
+helm upgrade --install argocd-config argocd-config -n argocd --wait --timeout 120s --values globalValues.yaml
+
 
 # kubectl port-forward -n argocd svc/argocd-server 8080:80
 # apply secrets: kubeseal --controller-name sealed-secrets --controller-namespace argo-common -o yaml < infile > outfile
