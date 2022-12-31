@@ -71,7 +71,7 @@ nextcloud:
 
   persistence:
     enabled: true
-    storageClass: argo-zfspv-slow
+    storageClass: argo-zfspv
     size: 4Ti
 
   metrics:

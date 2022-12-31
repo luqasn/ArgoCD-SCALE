@@ -45,7 +45,7 @@ kube-prometheus-stack:
     storageSpec:
       volumeClaimTemplate:
         spec:
-          storageClassName: argo-zfspv-fast
+          storageClassName: argo-zfspv
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:
