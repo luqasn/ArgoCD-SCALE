@@ -14,7 +14,7 @@ kubectl -n argocd-common create secret tls custom-unsealing-keys \
 kubectl -n argocd-common label secret custom-unsealing-keys sealedsecrets.bitnami.com/sealed-secrets-key=active
 
 
-adminpassword=$(< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${1:-32};echo;)
+adminpassword=$(openssl rand -base64 33)
 
 # install ArgoCD
 helm dependency update argocd
