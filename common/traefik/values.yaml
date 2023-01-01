@@ -14,7 +14,10 @@ traefik:
         enabled: true
 
   ports:
+    websecure:
+      nodePort: 32443
     web:
+      nodePort: 32080
       redirectTo: websecure
     mqtt:
       port: 8883
