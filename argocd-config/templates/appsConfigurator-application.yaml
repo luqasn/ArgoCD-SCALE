@@ -15,10 +15,14 @@ spec:
     targetRevision: {{ $.Values.global.branch }}
     path: appsConfigurator
     helm:
+      helm:
+        parameters:
+        - name: cert-manager.acme-server
+          value: '{{ $.Values.global.acme.server }}'
       valueFiles:
         - values.yaml
         - ../globalValues.yaml
-        - ../globalValues.local.yaml
+        # - ../globalValues.local.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
