@@ -4,6 +4,8 @@ global:
   domain: luqasn.org
   altDomainHome: bruns.house
   TZ: Europe/Berlin
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
 
   applicationSets:
   - common

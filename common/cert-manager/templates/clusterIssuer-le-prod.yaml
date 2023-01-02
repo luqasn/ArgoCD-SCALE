@@ -5,7 +5,7 @@ metadata:
 spec:
   acme:
     email: 'admin@{{ $.Values.global.domain }}'
-    server: https://acme-v02.api.letsencrypt.org/directory
+    server: '{{ $.Values.global.acme.server }}'
     privateKeySecretRef:
       name: leprod-issuer-account-key
     solvers:
