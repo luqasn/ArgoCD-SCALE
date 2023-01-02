@@ -17,10 +17,10 @@ traefik:
     type: NodePort
 
   ports:
-    # websecure:
-      # nodePort: 32443
+    websecure:
+      nodePort: 443
     web:
-      # nodePort: 32080
+      nodePort: 80
       redirectTo: websecure
     mqtt:
       port: 8883
